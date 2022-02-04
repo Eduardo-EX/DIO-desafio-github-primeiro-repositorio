@@ -1,0 +1,98 @@
+>> INTRODUÇÃO
+
+- Git é uma plataforma de compartilhamento de código com o fim de auxiliar o trabalho conjunto de programadores.
+- Git foi criado por Linus Torvalds, também criador do sistema operacional LINUX.
+- Git e GitHub não são a mesma tecnologia, complementares mas de empresas diferentes.
+- Git é open source.
+- Benefícios do Git e GitHub:
+	1 - Controle de Versão
+	2 - Armazenamento em Nuvem
+	3 - Trabalho em equipe
+	4 - Melhorar o seu código
+	5 - Reconhecimento
+
+
+>> NAVEGAÇÃO BÁSICA NO TERMINAL & INSTALAÇÃO
+
+
+>GUI x CLI
+
+- Git foi criado com o design de uma CLI (Command Line Interface) ou seja, se interage com o programa 
+ através de linhas de comando no teclado apenas.
+- Comandos diferem entre usuários de windows e LINUX
+- Comandos possuem flags, que são variantes dos comando básicos.
+- Conceito "Silence on Success", significa que o sucesso em executar um comando não cria avisos no terminal.
+
+- Comando listar:
+
+	Windows - dir		LINUX - ls	(usado para listar todas as pastas no diretório atual)
+
+- Comando "Change Directory":
+
+	Comando universal - cd 		(quando colocado o nome de uma pasta na frente move o usuário para tal)
+			    cd /	(usado junto com a "/" para sair de pasta ou diretório)
+			    cd..	(Retorna o usuário um passo anterior na cadeia de pastas)
+
+- Comando "Clear Screen", limpar tela:
+
+	Windows - cls		LINUX - clear	 (comando para apagar o texto na tela)
+
+- Tecla TAB tem a função de auto-completar um comando sendo escrito, reduzindo tempo de digitação e chance
+ de falha humana.
+
+- Comando para criação de pastas/diretórios "Make Directory":
+
+	Comando Universal - mkdir 	(Cria uma nova pasta no local atual)
+
+- Comando "echo": Retorna texto escrito pelo usuário.
+
+- Tecla ">" é um redirecionador de fluxo para outro arquivo.
+
+- Comando "Delete":
+
+	Comando - del 		(quando usado no Windows apenas deleta arquivos, porém não repositórios)
+	Comando - rmdir 	(Significa "remove directory" e é usado no windows para deletar um repositório)
+
+
+>> COMO FUNCIONA O GIT POR BAIXO DOS PANOS
+
+- SHA1
+- Objetos fundamentais
+- Sistema distribuído
+- Segurança
+
+> SHA1
+
+- A sigla SHA significa Secure Hash Algorithm (Algoritmo de Hash Seguro), é um conjunto de funções hash criptogáficas 
+ projetadas pela NSA (Agência de Segurança Nacional dos EUA).
+- A encriptação gera conjunto de caracteres indentificador de 40 dígitos.
+- É uma forma curta de representar um arquivo.
+- Comando para gerar encriptação: openssl sha1
+- O uso do sha1 no GIT permite o controle de versão já que a chave criada serve para identificar se houve modificação ou não
+ de uma versão de um arquivo para outra.
+
+
+> OBJETOS FUNDAMENTAIS
+
+- BLOBS
+- TREES
+- COMMITS
+
+- BLOB é composto pelo tipo de arquivo, o tamanho do arquivo, uma linha com "\0", o conteudo de fato do arquivo na forma de meta-dados 
+ e o sha1 identificador.
+- TREES armazenam BLOBS, elas também são compostas de meta-dados, os mesmos tipos de informação de uma BLOB, a BLOB em sí, e também o nome
+ das BLOBs armazenadas em sí.
+- COMMIT armazena TREEs, armazena a ultima versão do COMMIT, armazena o autor do COMMIT e uma mensagem que servem para comunicar quaisquer 
+ mudanças de uma versão para outra, também possuem um timestamp da data da mudança. Também possuem um sha1 único que é o hash de toda a informação
+ contida no COMMIT, ou seja todas as TREEs e BLOBs contidas no COMMIT.
+- Tudo isso serve para trazer a segurança de que uma versão de quaisquer código não esteja manipulada já que o sha1 de cada versão é único.
+
+> SISTEMA DISTRIBUÍDO SEGURO
+
+- Com o uso do sha1 e as estruturas de BLOB, TREE, e COMMIT o GIT garante que a alteração não permitida de um código seja praticamente impossível 
+ também garante que a versão mais atualizada deste código seja a mesma para todos os colaboradores e "administradores", além de manter a integridade
+ mesmo na ocorrencia de uma falha em qualquer uma das partes que cause perda de arquivos.
+
+
+>> CHAVES SSH E TOKENS
+
